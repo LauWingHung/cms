@@ -9,15 +9,15 @@ public class QueryContactFrame extends JFrame
 			implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	JLabel l1 = new JLabel("ĞÕ  Ãû");
+	JLabel l1 = new JLabel("å§“  å");
 	JTextField tf = new JTextField(15);
-	JButton b_qry = new JButton("¼ìË÷");
-	JButton b_all = new JButton("ËùÓĞÈË");
+	JButton b_qry = new JButton("æ£€ç´¢");
+	JButton b_all = new JButton("æ‰€æœ‰äºº");
 	JScrollPane sp = new JScrollPane();
 
-	// ³õÊ¼»¯½çÃæ
+	// åˆå§‹åŒ–ç•Œé¢
 	public QueryContactFrame() {
-		super("¼ìË÷ÁªÏµÈË");
+		super("æ£€ç´¢è”ç³»äºº");
 		Container c = this.getContentPane();
 		c.setLayout(null);
 
@@ -32,38 +32,39 @@ public class QueryContactFrame extends JFrame
 
 		p.setBounds(0, 0, 600, 35);
 		sp.setBounds(5, 40, 580, 320);
-		sp.setBorder(BorderFactory.createTitledBorder("ÁªÏµÈËÁĞ±í"));
+		sp.setBorder(BorderFactory.createTitledBorder("è”ç³»äººåˆ—è¡¨"));
 
 		this.setBounds(350, 200, 600, 400);
 		this.setResizable(false);
 		this.setVisible(true);
 
-		// ¹Ø±Õ²Ù×÷£º³·Ïú±¾´°¿Ú£¬µ«²»ÍË³öÓ¦ÓÃ³ÌĞò
+		// å…³é—­æ“ä½œï¼šæ’¤é”€æœ¬çª—å£ï¼Œä½†ä¸é€€å‡ºåº”ç”¨ç¨‹åº
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		// ×¢²á¼àÌıÆ÷
+		// æ³¨å†Œç›‘å¬å™¨
 		b_all.addActionListener(this);
 		b_qry.addActionListener(this);
 	}
 
-	// °´Å¥ÊÂ¼ş´¦Àí
+	// æŒ‰é’®äº‹ä»¶å¤„ç†
+	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		Object src = arg0.getSource();
 
-		// ËùÓĞÁªÏµÈË
+		// æ‰€æœ‰è”ç³»äºº
 		if (src == b_all) {
-			tf.setText(""); // Çå¿ÕÉÏÒ»ÂÖµÄ¼ìË÷¹Ø¼ü×Ö
+			tf.setText(""); // æ¸…ç©ºä¸Šä¸€è½®çš„æ£€ç´¢å…³é”®å­—
 			ResultSet rt = ContactDao.getAllContacts();
 			ResultSetTableModel rstm = new ResultSetTableModel(rt);
 			JTable tb = new JTable(rstm);
 			sp.setViewportView(tb);
 		}
 
-		// °´ĞÕÃû¼ìË÷
+		// æŒ‰å§“åæ£€ç´¢
 		if (src == b_qry) {
 			if (tf.getText().trim().equals("")) {
 				JOptionPane.showMessageDialog
-				(this, "²éÑ¯¹Ø¼ü×Ö²»¿ÉÎª¿Õ", "¾¯¸æ",
+				(this, "æŸ¥è¯¢å…³é”®å­—ä¸å¯ä¸ºç©º", "è­¦å‘Š",
 						JOptionPane.ERROR_MESSAGE);
 				return;
 			}

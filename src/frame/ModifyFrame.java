@@ -9,13 +9,13 @@ class ModifyContactFrame extends JFrame
 		implements ActionListener {	
 
 	private static final long serialVersionUID = 1L;
-	JLabel l1 = new JLabel("ĞÕ  Ãû£º", JLabel.CENTER);
-	JLabel l2 = new JLabel("¸üĞÂĞÔ±ğ  ", JLabel.CENTER);
-	JLabel l3 = new JLabel("¸üĞÂÄêÁä  ", JLabel.CENTER);
-	JLabel l4 = new JLabel("¸üĞÂµç»°  ", JLabel.CENTER);
-	JLabel l5 = new JLabel("¸üĞÂEmail ", JLabel.CENTER);
-	JLabel l6 = new JLabel("¸üĞÂÎ¢ĞÅºÅ ", JLabel.CENTER);
-	JLabel l7 = new JLabel("¸üĞÂQQºÅ ", JLabel.CENTER);
+	JLabel l1 = new JLabel("å§“  åï¼š", JLabel.CENTER);
+	JLabel l2 = new JLabel("æ›´æ–°æ€§åˆ«  ", JLabel.CENTER);
+	JLabel l3 = new JLabel("æ›´æ–°å¹´é¾„  ", JLabel.CENTER);
+	JLabel l4 = new JLabel("æ›´æ–°ç”µè¯  ", JLabel.CENTER);
+	JLabel l5 = new JLabel("æ›´æ–°Email ", JLabel.CENTER);
+	JLabel l6 = new JLabel("æ›´æ–°å¾®ä¿¡å· ", JLabel.CENTER);
+	JLabel l7 = new JLabel("æ›´æ–°QQå· ", JLabel.CENTER);
 	JTextField tf = new JTextField(15);
 	JTextField tf_sex = new JTextField(15);
 	JTextField tf_age = new JTextField(15);
@@ -24,13 +24,13 @@ class ModifyContactFrame extends JFrame
 	JTextField tf_wechatid = new JTextField(15);
 	JTextField tf_qqid = new JTextField(15);
 	JScrollPane sp = new JScrollPane();
-	JButton b_qry = new JButton("²é    Ñ¯");
-	JButton b_upd = new JButton("¸ü    ĞÂ");
-	JButton b_res = new JButton("ÖØ    ÖÃ");
+	JButton b_qry = new JButton("æŸ¥    è¯¢");
+	JButton b_upd = new JButton("æ›´    æ–°");
+	JButton b_res = new JButton("é‡    ç½®");
 
-	//³õÊ¼»¯½çÃæ
+	//åˆå§‹åŒ–ç•Œé¢
 	ModifyContactFrame() {
-		super("¸üĞÂÁªÏµÈË");
+		super("æ›´æ–°è”ç³»äºº");
 		Container c = this.getContentPane();
 		c.setLayout(null);
 		
@@ -58,7 +58,7 @@ class ModifyContactFrame extends JFrame
 		p3.add(b_upd);
 		p3.add(b_res);
 		
-		sp.setBorder(BorderFactory.createTitledBorder("Óû¸üĞÂµÄÁªÏµÈË"));
+		sp.setBorder(BorderFactory.createTitledBorder("æ¬²æ›´æ–°çš„è”ç³»äºº"));
 		
 		c.add(p1);
 		c.add(p2);
@@ -74,14 +74,14 @@ class ModifyContactFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);
 
-		// ¹Ø±Õ²Ù×÷£º³·Ïú±¾´°¿Ú£¬µ«²»ÍË³öÓ¦ÓÃ³ÌĞò
+		// å…³é—­æ“ä½œï¼šæ’¤é”€æœ¬çª—å£ï¼Œä½†ä¸é€€å‡ºåº”ç”¨ç¨‹åº
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		// ×¢²á¼àÌıÆ÷
+		// æ³¨å†Œç›‘å¬å™¨
 		b_qry.addActionListener(this);
 		b_upd.addActionListener(this);
 
-		// ÖØÖÃ°´Å¥ÊÂ¼ş´¦Àí
+		// é‡ç½®æŒ‰é’®äº‹ä»¶å¤„ç†
 		b_res.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tf.setText("");
@@ -95,13 +95,13 @@ class ModifyContactFrame extends JFrame
 
 	}
 
-	//²éÑ¯ ¡¢¸üĞÂ°´Å¥ ÊÂ¼ş´¦Àí
+	//æŸ¥è¯¢ ã€æ›´æ–°æŒ‰é’® äº‹ä»¶å¤„ç†
 	public void actionPerformed(ActionEvent arg0) {
 		Object src = arg0.getSource();
 
-		// ²éÑ¯
+		// æŸ¥è¯¢
 		if (src == b_qry) {
-			// Çå¿ÕÉÏÒ»ÂÖ¸üĞÂÎÄ±¾¿òÖĞµÄÄÚÈİ
+			// æ¸…ç©ºä¸Šä¸€è½®æ›´æ–°æ–‡æœ¬æ¡†ä¸­çš„å†…å®¹
 			tf_sex.setText("");
 			tf_age.setText("");
 			tf_phone.setText("");
@@ -109,28 +109,28 @@ class ModifyContactFrame extends JFrame
 			tf_wechatid.setText("");
 			tf_qqid.setText("");
 
-			// »ñÈ¡²éÑ¯µÄÁªÏµÈËĞÕÃû
+			// è·å–æŸ¥è¯¢çš„è”ç³»äººå§“å
 			String name = "";
 			if (tf.getText().trim().equals("")) {
-				JOptionPane.showMessageDialog(this, "ĞÕÃû²»¿ÉÎª¿Õ", "¾¯¸æ",
+				JOptionPane.showMessageDialog(this, "å§“åä¸å¯ä¸ºç©º", "è­¦å‘Š",
 						JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
 				name = tf.getText().trim();
 			}
 
-			// ²éÑ¯Óû¸üĞÂµÄÁªÏµÈËĞÅÏ¢
+			// æŸ¥è¯¢æ¬²æ›´æ–°çš„è”ç³»äººä¿¡æ¯
 			ResultSet rt = ContactDao.getContactByName(name);
 			ResultSetTableModel rstm = new ResultSetTableModel(rt);
 			JTable tb = new JTable(rstm);
 			sp.setViewportView(tb);
 		}
 
-		// ¸üĞÂ
+		// æ›´æ–°
 		if (src == b_upd) {
 			String name = "";
 			if (tf.getText().trim().equals("")) {
-				JOptionPane.showMessageDialog(this, "ĞÕÃû²»¿ÉÎª¿Õ", "¾¯¸æ",
+				JOptionPane.showMessageDialog(this, "å§“åä¸å¯ä¸ºç©º", "è­¦å‘Š",
 						JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
@@ -144,13 +144,13 @@ class ModifyContactFrame extends JFrame
 			String newWchatid = "";
 			String newQQid = "";
 
-			// ÈôĞÔ±ğ·Ç¿Õ£¬Ôò¸üĞÂĞÔ±ğ
+			// è‹¥æ€§åˆ«éç©ºï¼Œåˆ™æ›´æ–°æ€§åˆ«
 			if (!tf_sex.getText().equals("")) {
 
-				if (!tf_sex.getText().matches("[ÄĞ|Å®|M|F]")) {
+				if (!tf_sex.getText().matches("[ç”·|å¥³|M|F]")) {
 					JOptionPane.showMessageDialog
-					(this, "ĞÔ±ğ±ØĞëÊÇ£ºÄĞ»òÅ®£¬M»òF£¬ÇëÖØĞÂÊäÈë",
-							"¾¯¸æ", JOptionPane.ERROR_MESSAGE);
+					(this, "æ€§åˆ«å¿…é¡»æ˜¯ï¼šç”·æˆ–å¥³ï¼ŒMæˆ–Fï¼Œè¯·é‡æ–°è¾“å…¥",
+							"è­¦å‘Š", JOptionPane.ERROR_MESSAGE);
 					tf_sex.setText("");
 				} else {
 					newSex = tf_sex.getText();
@@ -160,11 +160,11 @@ class ModifyContactFrame extends JFrame
 				}
 			}
 
-			// ÈôÄêÁä·Ç¿Õ£¬Ôò¸üĞÂÄêÁä
+			// è‹¥å¹´é¾„éç©ºï¼Œåˆ™æ›´æ–°å¹´é¾„
 			if (!tf_age.getText().equals("")) {
 				if (!tf_age.getText().matches("[0-9]{1,3}")) {
 					JOptionPane.showMessageDialog
-					(this, "ÄêÁä±ØĞëÊÇÊıÖµ£¬ÇëÖØĞÂÊäÈë", "¾¯¸æ",
+					(this, "å¹´é¾„å¿…é¡»æ˜¯æ•°å€¼ï¼Œè¯·é‡æ–°è¾“å…¥", "è­¦å‘Š",
 							JOptionPane.ERROR_MESSAGE);
 					tf_age.setText("");
 				} else {
@@ -181,13 +181,13 @@ class ModifyContactFrame extends JFrame
 
 			}
 
-			// Èôµç»°·Ç¿Õ£¬Ôò¸üĞÂµç»°
+			// è‹¥ç”µè¯éç©ºï¼Œåˆ™æ›´æ–°ç”µè¯
 			if (!tf_phone.getText().equals("")) {
 
 				if (!tf_phone.getText().matches("[0-9]{8,11}")) {
 					JOptionPane.showMessageDialog
-					(this, "µç»°ºÅÂë±ØĞëÊÇ8~11Î»Êı×Ö£¬ÇëÖØĞÂÊäÈë",
-							"¾¯¸æ", JOptionPane.ERROR_MESSAGE);
+					(this, "ç”µè¯å·ç å¿…é¡»æ˜¯8~11ä½æ•°å­—ï¼Œè¯·é‡æ–°è¾“å…¥",
+							"è­¦å‘Š", JOptionPane.ERROR_MESSAGE);
 					tf_phone.setText("");
 
 				} else {
@@ -198,7 +198,7 @@ class ModifyContactFrame extends JFrame
 				}
 			}
 
-			// Èôemail·Ç¿Õ£¬Ôò¸üĞÂemail
+			// è‹¥emailéç©ºï¼Œåˆ™æ›´æ–°email
 			if (!tf_email.getText().equals("")) {
 
 				newEmail = tf_email.getText();
@@ -221,7 +221,7 @@ class ModifyContactFrame extends JFrame
 				ContactDao.updateContact(sql);
 			}
 
-			// ¸üĞÂ½áÊøºó£¬ÖØĞÂ¼ìË÷¸ÃÁªÏµÈË£¬ÏÔÊ¾¸üĞÂºóµÄĞÅÏ¢
+			// æ›´æ–°ç»“æŸåï¼Œé‡æ–°æ£€ç´¢è¯¥è”ç³»äººï¼Œæ˜¾ç¤ºæ›´æ–°åçš„ä¿¡æ¯
 			ResultSet rt = ContactDao.getContactByName(name);
 			ResultSetTableModel rstm = new ResultSetTableModel(rt);
 			JTable tb = new JTable(rstm);

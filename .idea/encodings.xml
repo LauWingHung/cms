@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/db/Contact.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/db/ContactDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/db/DBConnection.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/frame/DeleteContactFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/frame/InsertContactFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/frame/Login.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/frame/MainFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/frame/ModifyFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/frame/QueryContactFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/frame/ResultSetTableModel.java" charset="UTF-8" />
+  </component>
+</project>

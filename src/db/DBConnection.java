@@ -4,17 +4,17 @@ import java.sql.*;
 import java.sql.*;
 public class DBConnection {
   public static Connection getConn(){ 
-	//ÓĞ¹ØÊı¾İ¿âµÄÁ¬½ÓConnection
+	//æœ‰å…³æ•°æ®åº“çš„è¿æ¥Connection
 	Connection conn=null;
 	
 	String DRIVERNAME="com.mysql.jdbc.Driver";
-	//Á¬½ÓmysqlÊı¾İ¿âÄÄ¸ö¾ßÌåµÄÊı¾İ¿â
+	//è¿æ¥mysqlæ•°æ®åº“å“ªä¸ªå…·ä½“çš„æ•°æ®åº“
 	String DBURL="jdbc:mysql://localhost:3306/lau1yach";
-	//Ö¸Ã÷Á¬½ÓµÄ¾ßÌåÊı¾İ¿âlau1yach£¬½¨Á¢Á¬½Ó
+	//æŒ‡æ˜è¿æ¥çš„å…·ä½“æ•°æ®åº“lau1yachï¼Œå»ºç«‹è¿æ¥
 	try{
-		//¼ÓÔØÇı¶¯
+		//åŠ è½½é©±åŠ¨
 		Class.forName(DRIVERNAME);
-		//»ñÈ¡Á¬½Ó
+		//è·å–è¿æ¥
 		conn=DriverManager.getConnection(DBURL,"root","root");
 	}catch(Exception e){
 		System.out.println(e.getMessage());

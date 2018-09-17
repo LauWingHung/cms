@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class ContactDao {
 	
-	//ÑéÖ¤µÇÂ½ÕÊ»§ÊÇ·ñºÏ·¨
+	//éªŒè¯ç™»é™†å¸æˆ·æ˜¯å¦åˆæ³•
 	public static boolean checkUser(String name, String pw) {
 		boolean flag = false;
 		String sql = "select * from user where " +
@@ -44,14 +44,14 @@ public class ContactDao {
 		return flag;
 	}
 
-	// Ìí¼ÓÁªÏµÈË
+	// æ·»åŠ è”ç³»äºº
 	public static int insertContact(String sql, Contact aFriend) {
 		int result = 0;
 		/*
-		 * È¡Á¬½Ó
-		 * Ô¤´¦ÀíÓï¾ä¶ÔÏó¸÷IN²ÎÊı¸³Öµ 
-		 * Ö´ĞĞ´«ÈëµÄinsertÓï¾ä 
-		 * ·µ»Ø½á¹û
+		 * å–è¿æ¥
+		 * é¢„å¤„ç†è¯­å¥å¯¹è±¡å„INå‚æ•°èµ‹å€¼ 
+		 * æ‰§è¡Œä¼ å…¥çš„insertè¯­å¥ 
+		 * è¿”å›ç»“æœ
 		 */
 		Connection conn = DBConnection.getConn();
 		PreparedStatement pstmt = null;
@@ -82,7 +82,7 @@ public class ContactDao {
 		return result;
 	}
 
-	// ²éÑ¯ËùÓĞÁªÏµÈË
+	// æŸ¥è¯¢æ‰€æœ‰è”ç³»äºº
 	public static ResultSet getAllContacts() {
 		ResultSet rt = null;
 		Connection conn = DBConnection.getConn();
@@ -99,7 +99,7 @@ public class ContactDao {
 		return rt;
 	}
 
-	// °´ĞÕÃûÄ£ºı¼ìË÷ÁªÏµÈË
+	// æŒ‰å§“åæ¨¡ç³Šæ£€ç´¢è”ç³»äºº
 	public static ResultSet getContact(String name) {
 		ResultSet rt = null;
 		Connection conn = DBConnection.getConn();
@@ -117,7 +117,7 @@ public class ContactDao {
 		return rt;
 	}
 
-	// °´ĞÕÃû¾«È·¼ìË÷ÁªÏµÈË
+	// æŒ‰å§“åç²¾ç¡®æ£€ç´¢è”ç³»äºº
 	public static ResultSet getContactByName(String name) {
 		ResultSet rt = null;
 		Connection conn = DBConnection.getConn();
@@ -135,7 +135,7 @@ public class ContactDao {
 		return rt;
 	}
 
-	// ¸üĞÂÁªÏµÈË£º°üÀ¨ĞŞ¸ÄÁªÏµÈË×ÊÁÏºÍÉ¾³ıÁªÏµÈË
+	// æ›´æ–°è”ç³»äººï¼šåŒ…æ‹¬ä¿®æ”¹è”ç³»äººèµ„æ–™å’Œåˆ é™¤è”ç³»äºº
 	public static int updateContact(String sql) {
 		int result = 0;
 		Connection conn = DBConnection.getConn();

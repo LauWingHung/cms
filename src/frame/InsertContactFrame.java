@@ -9,13 +9,13 @@ public class InsertContactFrame extends JFrame
 		implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	JLabel l1 = new JLabel(" ĞÕÃû *");
-	JLabel l2 = new JLabel(" ĞÔ   ±ğ");
-	JLabel l3 = new JLabel(" Äê   Áä");
-	JLabel l4 = new JLabel(" µç»° *");
+	JLabel l1 = new JLabel(" å§“å *");
+	JLabel l2 = new JLabel(" æ€§   åˆ«");
+	JLabel l3 = new JLabel(" å¹´   é¾„");
+	JLabel l4 = new JLabel(" ç”µè¯ *");
 	JLabel l5 = new JLabel("  EMail ");
-	JLabel l6 = new JLabel("Î¢ĞÅºÅ");
-	JLabel l7 = new JLabel(" Q QºÅ ");
+	JLabel l6 = new JLabel("å¾®ä¿¡å·");
+	JLabel l7 = new JLabel(" Q Qå· ");
 	JTextField tf1 = new JTextField(15);
 	JTextField tf2 = new JTextField(15);
 	JTextField tf3 = new JTextField(15);
@@ -23,14 +23,14 @@ public class InsertContactFrame extends JFrame
 	JTextField tf5 = new JTextField(15);
 	JTextField tf6 = new JTextField(15);
 	JTextField tf7 = new JTextField(15);
-	JLabel msg1 = new JLabel("  ×¢Òâ£º´ø*µÄ±ØÌî£¡");
+	JLabel msg1 = new JLabel("  æ³¨æ„ï¼šå¸¦*çš„å¿…å¡«ï¼");
 	JLabel msg2 = new JLabel();
-	JButton btnIns = new JButton("Ìí ¼Ó");
-	JButton btnRes = new JButton("ÖØ ÖÃ");
+	JButton btnIns = new JButton("æ·» åŠ ");
+	JButton btnRes = new JButton("é‡ ç½®");
 	
-	// ³õÊ¼»¯½çÃæ
+	// åˆå§‹åŒ–ç•Œé¢
 	public InsertContactFrame() {
-		super("Ìí¼ÓÁªÏµÈË");
+		super("æ·»åŠ è”ç³»äºº");
 		Container c = this.getContentPane();
 		c.setLayout(null);
 
@@ -75,57 +75,57 @@ public class InsertContactFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);		
 
-		//ĞŞ¸ÄÄ¬ÈÏ¹Ø±Õ²Ù×÷Îª DISPOSE_ON_CLOSE
+		//ä¿®æ”¹é»˜è®¤å…³é—­æ“ä½œä¸º DISPOSE_ON_CLOSE
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		// °´Å¥×¢²á¼àÌıÆ÷
+		// æŒ‰é’®æ³¨å†Œç›‘å¬å™¨
 		btnIns.addActionListener(this);
 		btnRes.addActionListener(this);
 	}
 
-	//°´Å¥ÊÂ¼ş´¦Àí
+	//æŒ‰é’®äº‹ä»¶å¤„ç†
 	public void actionPerformed(ActionEvent arg0) {
 
 		JButton src = (JButton) arg0.getSource();
 		
-		// Ìí¼Ó
+		// æ·»åŠ 
 		if (src == btnIns) {
-			msg2.setText(""); // Çå¿ÕÉÏÒ»ÂÖÌí¼ÓµÄ·´À¡ĞÅÏ¢
+			msg2.setText(""); // æ¸…ç©ºä¸Šä¸€è½®æ·»åŠ çš„åé¦ˆä¿¡æ¯
 			/*
-			 * È¡ÁªÏµÈËĞÅÏ¢£¬·â×°³ÉContact¶ÔÏó 
-			 * ½«Contact¶ÔÏó²åÈëµ½Êı¾İ¿â
+			 * å–è”ç³»äººä¿¡æ¯ï¼Œå°è£…æˆContactå¯¹è±¡ 
+			 * å°†Contactå¯¹è±¡æ’å…¥åˆ°æ•°æ®åº“
 			 */
 			Contact aFriend = new Contact();
 
-			// ĞÕÃû²»¿ÉÎª¿Õ			
+			// å§“åä¸å¯ä¸ºç©º			
 			String name = null;			
 			if (tf1.getText().trim().equals("")) {
 				JOptionPane.showMessageDialog
-				(this, "´ø * µÄ²»¿ÉÎª¿Õ£¡", "¾¯¸æ",
+				(this, "å¸¦ * çš„ä¸å¯ä¸ºç©ºï¼", "è­¦å‘Š",
 						JOptionPane.ERROR_MESSAGE);
 				return;			
 			}else{				
 				name =  tf1.getText().trim();
 			}			
 
-			// ĞÔ±ğÖ»ÄÜÓÃ ÄĞ¡¢Å®¡¢M¡¢F ±íÊ¾
+			// æ€§åˆ«åªèƒ½ç”¨ ç”·ã€å¥³ã€Mã€F è¡¨ç¤º
 			String sex = "";
 			if (!tf2.getText().equals("")
-					&& !tf2.getText().matches("[ÄĞ|Å®|M|F]")) {
-				JOptionPane.showMessageDialog(this, "ĞÔ±ğ±ØĞëÊÇ£ºÄĞ»òÅ®£¬M»òF£¬ÇëÖØĞÂÊäÈë",
-						"¾¯¸æ", JOptionPane.ERROR_MESSAGE);
+					&& !tf2.getText().matches("[ç”·|å¥³|M|F]")) {
+				JOptionPane.showMessageDialog(this, "æ€§åˆ«å¿…é¡»æ˜¯ï¼šç”·æˆ–å¥³ï¼ŒMæˆ–Fï¼Œè¯·é‡æ–°è¾“å…¥",
+						"è­¦å‘Š", JOptionPane.ERROR_MESSAGE);
 				tf2.setText("");
 				return;
 			} else {
 				sex = tf2.getText();
 			}
 
-			// ÄêÁä±ØĞëÊÇÕûÊı
+			// å¹´é¾„å¿…é¡»æ˜¯æ•´æ•°
 			int age = 0;
 			if (!tf3.getText().equals("")
 					&& !tf3.getText().matches("[0-9]{1,3}")) {
 				JOptionPane.showMessageDialog
-				(this, "ÄêÁä±ØĞëÊÇÊıÖµ£¬ÇëÖØĞÂÊäÈë", "¾¯¸æ",
+				(this, "å¹´é¾„å¿…é¡»æ˜¯æ•°å€¼ï¼Œè¯·é‡æ–°è¾“å…¥", "è­¦å‘Š",
 						JOptionPane.ERROR_MESSAGE);
 				tf3.setText("");
 				return;
@@ -137,12 +137,12 @@ public class InsertContactFrame extends JFrame
 				}
 			}
 
-			// µç»°ºÅÂë±ØĞëÊÇÊı×Ö£¬ÇÒ¹² 8~11Î»
+			// ç”µè¯å·ç å¿…é¡»æ˜¯æ•°å­—ï¼Œä¸”å…± 8~11ä½
 			String phone = "";
 			if (!tf4.getText().equals("")
 					&& !tf4.getText().matches("[0-9]{8,11}")) {
-				JOptionPane.showMessageDialog(this, "µç»°ºÅÂë±ØĞëÊÇ8~11Î»Êı×Ö£¬ÇëÖØĞÂÊäÈë",
-						"¾¯¸æ", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "ç”µè¯å·ç å¿…é¡»æ˜¯8~11ä½æ•°å­—ï¼Œè¯·é‡æ–°è¾“å…¥",
+						"è­¦å‘Š", JOptionPane.ERROR_MESSAGE);
 				tf4.setText("");
 				return;
 			} else {
@@ -155,7 +155,7 @@ public class InsertContactFrame extends JFrame
 			
 			String qqid = tf7.getText();
 
-			// ¸ù¾İÓÃ»§ÊäÈëµÄÁªÏµÈËĞÅÏ¢£¬µÃµ½1¸ö¾ßÌåµÄÁªÏµÈËÊµÀı
+			// æ ¹æ®ç”¨æˆ·è¾“å…¥çš„è”ç³»äººä¿¡æ¯ï¼Œå¾—åˆ°1ä¸ªå…·ä½“çš„è”ç³»äººå®ä¾‹
 			aFriend.setName(name);
 			aFriend.setSex(sex);
 			aFriend.setAge(age);
@@ -164,17 +164,17 @@ public class InsertContactFrame extends JFrame
 			aFriend.setWechatid(wechatid);
 			aFriend.setQqid(qqid);
 
-			// ×¼±¸ insert Óï¾ä
-			//µ÷ÓÃContactDaoµÄinsertContact()·½·¨ÊµÏÖÂ¼ÈëÁªÏµÈË
+			// å‡†å¤‡ insert è¯­å¥
+			//è°ƒç”¨ContactDaoçš„insertContact()æ–¹æ³•å®ç°å½•å…¥è”ç³»äºº
 			String sql = "insert into contact" +
 					"(name,sex,age,phone,email,wechatid,qqid) " +
 					"values(?,?,?,?,?,?,?)";
 			int result = ContactDao.insertContact(sql, aFriend);
 			
-			// ¸ù¾İinsertContact()·½·¨µÄÖ´ĞĞ½á¹û£¬ÔÚ½çÃæÉÏÏÔÊ¾ÏàÓ¦µÄ½á¹ûĞÅÏ¢
+			// æ ¹æ®insertContact()æ–¹æ³•çš„æ‰§è¡Œç»“æœï¼Œåœ¨ç•Œé¢ä¸Šæ˜¾ç¤ºç›¸åº”çš„ç»“æœä¿¡æ¯
 			if (result == 1) {
-				msg2.setText("Ìí¼ÓÁªÏµÈË³É¹¦£¡");
-				tf1.setText("¿ÉÌí¼ÓĞÂÁªÏµÈËÁË");
+				msg2.setText("æ·»åŠ è”ç³»äººæˆåŠŸï¼");
+				tf1.setText("å¯æ·»åŠ æ–°è”ç³»äººäº†");
 				tf2.setText("");
 				tf3.setText("");
 				tf4.setText("");
@@ -182,7 +182,7 @@ public class InsertContactFrame extends JFrame
 				tf6.setText("");
 				tf7.setText("");
 			} else {
-				msg2.setText("Ìí¼ÓÁªÏµÈËÊ§°Ü£¡£¡£¡");
+				msg2.setText("æ·»åŠ è”ç³»äººå¤±è´¥ï¼ï¼ï¼");
 				tf1.setText("");
 				tf2.setText("");
 				tf3.setText("");
@@ -193,7 +193,7 @@ public class InsertContactFrame extends JFrame
 			}
 		}
 
-		// ÖØÖÃ
+		// é‡ç½®
 		if (src == btnRes) {
 			tf1.setText("");
 			tf2.setText("");

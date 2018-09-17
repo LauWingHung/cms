@@ -5,31 +5,31 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 public class Login extends JFrame implements ActionListener{
-    //¶¨ÒåĞèÒªµÄ×é¼ş
-	JTextField jtf;               //ÎÄ±¾¿ò
+    //å®šä¹‰éœ€è¦çš„ç»„ä»¶
+	JTextField jtf;               //æ–‡æœ¬æ¡†
 	JButton jb1,jb2;
-	JLabel jl1,jl2;               //±êÇ©
-	JPasswordField jpf;           //ÃÜÂë¿ò
+	JLabel jl1,jl2;               //æ ‡ç­¾
+	JPasswordField jpf;           //å¯†ç æ¡†
 	JPanel jp1,jp2,jp3;
 	
-	//´´½¨×é¼ş
+	//åˆ›å»ºç»„ä»¶
 	public Login(){
 		jp1=new JPanel();
 		jp2=new JPanel();
 		jp3=new JPanel();
 		
-		jb1=new JButton("µÇÂ¼");
-		jb2=new JButton("ÍË³ö");
+		jb1=new JButton("ç™»å½•");
+		jb2=new JButton("é€€å‡º");
 		
-		jl1=new JLabel("ÓÃ»§Ãû:");
-		jl2=new JLabel("ÃÜ     Âë:");
+		jl1=new JLabel("ç”¨æˆ·å:");
+		jl2=new JLabel("å¯†     ç :");
 		
 		jtf=new JTextField(10);
 		jpf=new JPasswordField(10);
 
-		//ÉèÖÃ¹ÜÀíÆ÷µÄÄ£Ê½
+		//è®¾ç½®ç®¡ç†å™¨çš„æ¨¡å¼
 		this.setLayout(new GridLayout(3,1));
-		//Ìí¼Ó×é¼ş
+		//æ·»åŠ ç»„ä»¶
 		jp1.add(jl1);
 		jp1.add(jtf);
 		jp2.add(jl2);
@@ -41,37 +41,37 @@ public class Login extends JFrame implements ActionListener{
 		this.add(jp2);
 		this.add(jp3);
 		
-		//2¸ö°´Å¥×¢²á¼àÌıÆ÷
+		//2ä¸ªæŒ‰é’®æ³¨å†Œç›‘å¬å™¨
 		jb1.addActionListener(this);
 		jb2.addActionListener(this);
 				
 		
-		this.setTitle("µÇÂ¼½çÃæ                                  ps£ºµÇÂ½È¨ÏŞÇëÁªÏµ¹ÜÀíÔ±");
+		this.setTitle("ç™»å½•ç•Œé¢                                  psï¼šç™»é™†æƒé™è¯·è”ç³»ç®¡ç†å‘˜");
 		this.setSize(500,150);
 		this.setLocation(300, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setVisible(true);	
 	}
-	//¼àÌıÆ÷µÄ´¦Àí
+	//ç›‘å¬å™¨çš„å¤„ç†
 			public void actionPerformed(ActionEvent e){
-				//µã»÷ÖØÖÃ°´Å¥£¬ÍË³öµÇÂ¼½çÃæ
+				//ç‚¹å‡»é‡ç½®æŒ‰é’®ï¼Œé€€å‡ºç™»å½•ç•Œé¢
 				if(e.getSource()==jb2){
 					System.exit(0);
 				}
-				//µã»÷µÇÂ¼°´Å¥
+				//ç‚¹å‡»ç™»å½•æŒ‰é’®
 				if(e.getSource()==jb1){
-					String name=jtf.getText();//»ñÈ¡ÎÄ±¾¿òÊäÈëµÄÄÚÈİ
-					char[] pwTmp=jpf.getPassword();//»ñÈ¡ÃÜÂë¿òÊäÈëµÄÄÚÈİ
-					//°Ñchar[]Êı×é×ª»»³ÉString
+					String name=jtf.getText();//è·å–æ–‡æœ¬æ¡†è¾“å…¥çš„å†…å®¹
+					char[] pwTmp=jpf.getPassword();//è·å–å¯†ç æ¡†è¾“å…¥çš„å†…å®¹
+					//æŠŠchar[]æ•°ç»„è½¬æ¢æˆString
 					String pw=new String(pwTmp);
-					//±È½ÏÓÃ»§ÊäÈëµÄÓÃ»§Ãû¸úÃÜÂëÊÇ·ñ¸úÊı¾İ¿â±íuserÆ¥Åä
+					//æ¯”è¾ƒç”¨æˆ·è¾“å…¥çš„ç”¨æˆ·åè·Ÿå¯†ç æ˜¯å¦è·Ÿæ•°æ®åº“è¡¨useråŒ¹é…
 					boolean flag=ContactDao.checkUser(name,pw);
-					//ÅĞ¶ÏÓÃ»§ÃûºÍÃÜÂë
+					//åˆ¤æ–­ç”¨æˆ·åå’Œå¯†ç 
 					if(flag==true){
-						//µÇÂ¼½çÃæÏûÊ§
+						//ç™»å½•ç•Œé¢æ¶ˆå¤±
 						this.dispose();
-						//ÏÔÊ¾Ö÷½çÃæ
+						//æ˜¾ç¤ºä¸»ç•Œé¢
 						try {
 							new MainFrame();
 						} catch (SQLException e1) {
@@ -80,7 +80,7 @@ public class Login extends JFrame implements ActionListener{
 						}
 					}
 					if(flag==false){
-						JOptionPane.showMessageDialog(this, "ÓÃ»§Ãû»òÃÜÂë´íÎó£¡");
+						JOptionPane.showMessageDialog(this, "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯ï¼");
 					}
 				}
 			}

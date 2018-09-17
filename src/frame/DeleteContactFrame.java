@@ -8,17 +8,17 @@ import java.sql.*;
 public class DeleteContactFrame extends JFrame 
 	implements ActionListener {
 	private static final long serialVersionUID = 1L;
-	JLabel l1 = new JLabel("ĞÕ  Ãû£º", JLabel.CENTER);
+	JLabel l1 = new JLabel("å§“  åï¼š", JLabel.CENTER);
 	JTextField tf = new JTextField(15);
 	JScrollPane sp = new JScrollPane();
 	JLabel msg = new JLabel("", JLabel.CENTER);
 	
-	JButton b_qry = new JButton("²é    Ñ¯");
-	JButton b_del = new JButton("É¾    ³ı");
+	JButton b_qry = new JButton("æŸ¥    è¯¢");
+	JButton b_del = new JButton("åˆ     é™¤");
 	
-	//³õÊ¼»¯½çÃæ
+	//åˆå§‹åŒ–ç•Œé¢
 	public DeleteContactFrame() {
-		super("É¾³ıÁªÏµÈË");
+		super("åˆ é™¤è”ç³»äºº");
 		Container c = this.getContentPane();
 		c.setLayout(null);
 
@@ -30,7 +30,7 @@ public class DeleteContactFrame extends JFrame
 		p.add(b_del);
 
 		sp.setBorder(BorderFactory.
-				createTitledBorder("ÓûÉ¾³ıµÄÁªÏµÈË"));
+				createTitledBorder("æ¬²åˆ é™¤çš„è”ç³»äºº"));
 
 		msg.setForeground(Color.RED);
 
@@ -46,68 +46,70 @@ public class DeleteContactFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);
 
-		// ¹Ø±Õ²Ù×÷£º³·Ïú±¾´°¿Ú£¬µ«²»ÍË³öÓ¦ÓÃ³ÌĞò
+		// å…³é—­æ“ä½œï¼šæ’¤é”€æœ¬çª—å£ï¼Œä½†ä¸é€€å‡ºåº”ç”¨ç¨‹åº
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		// ×¢²á¼àÌıÆ÷
+		// æ³¨å†Œç›‘å¬å™¨
 		b_qry.addActionListener(this);
 		b_del.addActionListener(this);
 	}
 
-	//°´Å¥ ÊÂ¼ş´¦Àí
+	//æŒ‰é’® äº‹ä»¶å¤„ç†
+	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		Object src = arg0.getSource();
 
-		// ²éÑ¯
+		// æŸ¥è¯¢
 		if (src == b_qry) {
-			//Çå¿ÕÉÏÒ»ÂÖµÄ·´À¡ĞÅÏ¢
+			//æ¸…ç©ºä¸Šä¸€è½®çš„åé¦ˆä¿¡æ¯
 			msg.setText("");
-			// »ñÈ¡²éÑ¯µÄÁªÏµÈËĞÕÃû
+			// è·å–æŸ¥è¯¢çš„è”ç³»äººå§“å
 			String name = "";
 			if (tf.getText().trim().equals("")) {
-				JOptionPane.showMessageDialog(this, "ĞÕÃû²»¿ÉÎª¿Õ", "¾¯¸æ",
+				JOptionPane.showMessageDialog(this, "å§“åä¸å¯ä¸ºç©º", "è­¦å‘Š",
 						JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
 				name = tf.getText().trim();
 			}
-			// ²éÑ¯Óû¸üĞÂµÄÁªÏµÈËĞÅÏ¢
+			// æŸ¥è¯¢æ¬²æ›´æ–°çš„è”ç³»äººä¿¡æ¯
 			ResultSet rt = ContactDao.getContactByName(name);
 			ResultSetTableModel rstm = new ResultSetTableModel(rt);
 			JTable tb = new JTable(rstm);
 			sp.setViewportView(tb);
 		}
 
-		// É¾³ı
+		// åˆ é™¤
 		if (src == b_del) {
-			//»ñÈ¡ÓûÉ¾³ıÁªÏµÈËµÄĞÕÃû
+			//è·å–æ¬²åˆ é™¤è”ç³»äººçš„å§“å
 			String name = "";
 			if (tf.getText().trim().equals("")) {
 				JOptionPane.showMessageDialog
-				(this, "ĞÕÃû²»¿ÉÎª¿Õ", "¾¯¸æ",
+				(this, "å§“åä¸å¯ä¸ºç©º", "è­¦å‘Š",
 				JOptionPane.ERROR_MESSAGE);
 				return;
 			} else {
 				name = tf.getText().trim();
 			}
 
-			//È·ÈÏ¶Ô»°¿ò
+			//ç¡®è®¤å¯¹è¯æ¡†
 			int option = JOptionPane.
-			showConfirmDialog(null, "È·¶¨ÒªÉ¾³ı¸ÃÁªÏµÈËÂğ£¿",
-			"È·ÈÏÉ¾³ı",JOptionPane.OK_CANCEL_OPTION);
+			showConfirmDialog(null, "ç¡®å®šè¦åˆ é™¤è¯¥è”ç³»äººå—ï¼Ÿ",
+			"ç¡®è®¤åˆ é™¤",JOptionPane.OK_CANCEL_OPTION);
 
-			//ÔÚÈ·ÈÏ¶Ô»°¿òÑ¡ÔñÁË¡°ÊÇ¡±£¬ÔòÖ´ĞĞÉ¾³ı£¬·ñÔò²»Ö´ĞĞÉ¾³ı
-			if (option == JOptionPane.OK_OPTION) { // È·¶¨É¾³ı
+			//åœ¨ç¡®è®¤å¯¹è¯æ¡†é€‰æ‹©äº†â€œæ˜¯â€ï¼Œåˆ™æ‰§è¡Œåˆ é™¤ï¼Œå¦åˆ™ä¸æ‰§è¡Œåˆ é™¤
+			if (option == JOptionPane.OK_OPTION) {
+				// ç¡®å®šåˆ é™¤
 				String sql = "delete from contact" +
 						" where name='" + name + "'";
 				int result = ContactDao.updateContact(sql);
 				if (result == 1) {
-					msg.setText("É¾³ı³É¹¦£¡");
+					msg.setText("åˆ é™¤æˆåŠŸï¼");
 					sp.setViewportView(null);					
 				} else {
-					msg.setText("É¾³ıÊ§°Ü");
+					msg.setText("åˆ é™¤å¤±è´¥");
 				}
-			} else { // È¡ÏûÉ¾³ı
+			} else { // å–æ¶ˆåˆ é™¤
 				return;
 			}
 		}

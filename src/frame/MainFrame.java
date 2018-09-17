@@ -14,13 +14,13 @@ public class MainFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	
 	JMenuBar menubar = new JMenuBar();
-	JMenu m_contactManager = new JMenu("ÁªÏµÈË¹ÜÀí");
-	JMenu m_systemManager = new JMenu("ÏµÍ³¹ÜÀí");
-	JMenuItem mi_query = new JMenuItem("¼ìË÷ÁªÏµÈË");
-	JMenuItem mi_insert = new JMenuItem("Ìí¼ÓÁªÏµÈË");
-	JMenuItem mi_modify = new JMenuItem("ĞŞ¸ÄÁªÏµÈË");
-	JMenuItem mi_delete = new JMenuItem("É¾³ıÁªÏµÈË");
-	JMenuItem mi_exit = new JMenuItem("ÍË³öÏµÍ³");
+	JMenu m_contactManager = new JMenu("è”ç³»äººç®¡ç†");
+	JMenu m_systemManager = new JMenu("ç³»ç»Ÿç®¡ç†");
+	JMenuItem mi_query = new JMenuItem("æ£€ç´¢è”ç³»äºº");
+	JMenuItem mi_insert = new JMenuItem("æ·»åŠ è”ç³»äºº");
+	JMenuItem mi_modify = new JMenuItem("ä¿®æ”¹è”ç³»äºº");
+	JMenuItem mi_delete = new JMenuItem("åˆ é™¤è”ç³»äºº");
+	JMenuItem mi_exit = new JMenuItem("é€€å‡ºç³»ç»Ÿ");
 	
 	JToolBar toolbar = new JToolBar();
 	JButton b_qry = new JButton(new ImageIcon("imgs/search.png"));
@@ -31,20 +31,20 @@ public class MainFrame extends JFrame implements ActionListener {
 	//JLabel l_img = new JLabel(new ImageIcon("imgs/img.jpg"));
 	
 	
-	//³õÊ¼»¯½çÃæ
+	//åˆå§‹åŒ–ç•Œé¢
 	public MainFrame() throws SQLException {
 		Vector a=new Vector();
-		a.add("ĞÕÃû");
-		a.add("ĞÔ±ğ");
-		a.add("ÄêÁä");
-		a.add("ÊÖ»úºÅÂë");
-		a.add("ÓÊÏä");
-		a.add("Î¢ĞÅºÅ");
-		a.add("QQºÅÂë");
+		a.add("å§“å");
+		a.add("æ€§åˆ«");
+		a.add("å¹´é¾„");
+		a.add("æ‰‹æœºå·ç ");
+		a.add("é‚®ç®±");
+		a.add("å¾®ä¿¡å·");
+		a.add("QQå·ç ");
 		Vector b=new Vector();
-		//String[] colNames=new String[]{"ĞÕÃû","ĞÔ±ğ","ÉúÈÕ","ÊÖ»úºÅÂë","ÓÊÏä","Î¢ĞÅºÅ","QQºÅÂë"};
-		//String[][] datas={{"ÕÅÈı","ÄĞ","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"ÀîËÄ","ÄĞ","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"ÀîËÄ","ÄĞ","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"ÀîËÄ","ÄĞ","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"ÀîËÄ","ÄĞ","24","1111111","asdasd@qq.com","asdasddfg","55554313"}};
-		//super("ÁªÏµÈË¹ÜÀí");
+		//String[] colNames=new String[]{"å§“å","æ€§åˆ«","ç”Ÿæ—¥","æ‰‹æœºå·ç ","é‚®ç®±","å¾®ä¿¡å·","QQå·ç "};
+		//String[][] datas={{"å¼ ä¸‰","ç”·","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"æå››","ç”·","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"æå››","ç”·","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"æå››","ç”·","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"æå››","ç”·","24","1111111","asdasd@qq.com","asdasddfg","55554313"}};
+		//super("è”ç³»äººç®¡ç†");
 		ResultSet n=ContactDao.getAllContacts();
 		while(n.next()) {
 			Vector k=new Vector();
@@ -70,7 +70,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		c.add(toolbar, BorderLayout.NORTH);
 		//c.add(l_img, BorderLayout.CENTER);
 		this.setBounds(200,100,1000, 200);
-		this.setTitle("ÁªÏµÈË¹ÜÀíÏµÍ³");
+		this.setTitle("è”ç³»äººç®¡ç†ç³»ç»Ÿ");
 		this.setVisible(true);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,7 +78,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		
 
-		// ÉèÖÃ²Ëµ¥Ïî¿ì½İ¼ü
+		// è®¾ç½®èœå•é¡¹å¿«æ·é”®
 		mi_query.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
 				InputEvent.CTRL_MASK, false));
 		mi_insert.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I,
@@ -90,7 +90,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		mi_exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
 				InputEvent.CTRL_MASK, false));
 
-		//×¢²á¼àÌıÆ÷
+		//æ³¨å†Œç›‘å¬å™¨
 		mi_query.addActionListener(this);
 		mi_insert.addActionListener(this);
 		mi_modify.addActionListener(this);
@@ -105,7 +105,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 	}
 
-	// ´´½¨²Ëµ¥
+	// åˆ›å»ºèœå•
 	void buildMenuBar() {
 		menubar.add(m_contactManager);
 		menubar.add(m_systemManager);
@@ -116,7 +116,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		m_systemManager.add(mi_exit);
 	}
 	
-	//´´½¨¹¤¾ßÀ¸
+	//åˆ›å»ºå·¥å…·æ 
 	void buildToolBar() {
 		toolbar.setFloatable(false);
 		toolbar.add(b_qry);
@@ -126,34 +126,35 @@ public class MainFrame extends JFrame implements ActionListener {
 		toolbar.add(b_del);
 		toolbar.addSeparator();
 		toolbar.add(b_exit);
-		b_qry.setToolTipText("¼ìË÷ÁªÏµÈË");
-		b_ins.setToolTipText("Ìí¼ÓÁªÏµÈË");
-		b_upd.setToolTipText("ĞŞ¸ÄÁªÏµÈË");
-		b_del.setToolTipText("É¾³ıÁªÏµÈË");
-		b_exit.setToolTipText("ÍË³öÏµÍ³");
+		b_qry.setToolTipText("æ£€ç´¢è”ç³»äºº");
+		b_ins.setToolTipText("æ·»åŠ è”ç³»äºº");
+		b_upd.setToolTipText("ä¿®æ”¹è”ç³»äºº");
+		b_del.setToolTipText("åˆ é™¤è”ç³»äºº");
+		b_exit.setToolTipText("é€€å‡ºç³»ç»Ÿ");
 	}
 
-	//ÊÂ¼ş´¦Àí
+	//äº‹ä»¶å¤„ç†
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		//ÍË³ö
+		//é€€å‡º
 		if (src == mi_exit  || src==b_exit) {
 			System.exit(0);
 		}
-		//¼ìË÷
+		//æ£€ç´¢
 		if (src == mi_query || src==b_qry) {
 			 new QueryContactFrame();
 		}
-		//Ìí¼Ó
+		//æ·»åŠ 
 		if (src == mi_insert || src==b_ins) {
 			new InsertContactFrame();
 		}		
-		//ĞŞ¸Ä
+		//ä¿®æ”¹
 		if (src == mi_modify || src==b_upd) {
 			new ModifyContactFrame();
 		}
-		//É¾³ı
+		//åˆ é™¤
 		if (src == mi_delete || src==b_del) {			
 			new DeleteContactFrame();
 		}

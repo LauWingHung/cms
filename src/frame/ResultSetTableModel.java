@@ -17,7 +17,8 @@ public class ResultSetTableModel extends AbstractTableModel {
 		}
 	}
 
-	// ±ØĞëÖØĞ´
+	// å¿…é¡»é‡å†™
+	@Override
 	public int getRowCount() {
 		int rowCount = 0;
 		try {
@@ -30,7 +31,7 @@ public class ResultSetTableModel extends AbstractTableModel {
 		}
 	}
 
-	// ±ØĞëÖØĞ´
+	// å¿…é¡»é‡å†™
 	public int getColumnCount() {
 		try {
 			return rsmd.getColumnCount();
@@ -41,7 +42,7 @@ public class ResultSetTableModel extends AbstractTableModel {
 
 	}
 
-	// ±ØĞëÖØĞ´
+	// å¿…é¡»é‡å†™
 	public Object getValueAt(int row, int column) {
 		try {
 			rs.absolute(row + 1);
@@ -52,7 +53,8 @@ public class ResultSetTableModel extends AbstractTableModel {
 		}
 	}
 
-	// ¿ÉÑ¡£ºÈô²»ÖØĞ´Õâ¸ö·½·¨£¬Ôò±í¸ñÄ£ĞÍ°´ÕÕÄ¬ÈÏµÄ A B C D ... ÒÀ´ÎÃüÃû¸÷¸ö×Ö¶Î
+	// å¯é€‰ï¼šè‹¥ä¸é‡å†™è¿™ä¸ªæ–¹æ³•ï¼Œåˆ™è¡¨æ ¼æ¨¡å‹æŒ‰ç…§é»˜è®¤çš„ A B C D ... ä¾æ¬¡å‘½åå„ä¸ªå­—æ®µ
+	@Override
 	public String getColumnName(int column) {
 		try {
 			return rsmd.getColumnName(column + 1);
