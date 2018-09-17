@@ -43,6 +43,7 @@ public class ResultSetTableModel extends AbstractTableModel {
 	}
 
 	// 必须重写
+	@Override
 	public Object getValueAt(int row, int column) {
 		try {
 			rs.absolute(row + 1);
