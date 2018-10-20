@@ -5,8 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 
-class ModifyContactFrame extends JFrame 
-		implements ActionListener {	
+class ModifyContactFrame extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	JLabel l1 = new JLabel("姓  名：", JLabel.CENTER);

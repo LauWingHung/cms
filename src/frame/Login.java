@@ -5,13 +5,15 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 public class Login extends JFrame implements ActionListener{
-    //定义需要的组件
-	JTextField jtf;               //文本框
+	//定义需要的组件
+	JTextField jtf;
+	//文本框
 	JButton jb1,jb2;
-	JLabel jl1,jl2;               //标签
-	JPasswordField jpf;           //密码框
+	//标签
+	JLabel jl1,jl2;
+	//密码框
+	JPasswordField jpf;
 	JPanel jp1,jp2,jp3;
-	
 	//创建组件
 	public Login(){
 		jp1=new JPanel();
@@ -54,6 +56,7 @@ public class Login extends JFrame implements ActionListener{
 		this.setVisible(true);	
 	}
 	//监听器的处理
+			@Override
 			public void actionPerformed(ActionEvent e){
 				//点击重置按钮，退出登录界面
 				if(e.getSource()==jb2){
@@ -61,8 +64,10 @@ public class Login extends JFrame implements ActionListener{
 				}
 				//点击登录按钮
 				if(e.getSource()==jb1){
-					String name=jtf.getText();//获取文本框输入的内容
-					char[] pwTmp=jpf.getPassword();//获取密码框输入的内容
+					//获取文本框输入的内容
+					String name=jtf.getText();
+					//获取密码框输入的内容
+					char[] pwTmp=jpf.getPassword();
 					//把char[]数组转换成String
 					String pw=new String(pwTmp);
 					//比较用户输入的用户名跟密码是否跟数据库表user匹配
@@ -85,8 +90,6 @@ public class Login extends JFrame implements ActionListener{
 				}
 			}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
         new Login();
 	}
-
 }

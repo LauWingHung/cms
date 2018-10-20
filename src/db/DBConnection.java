@@ -1,9 +1,9 @@
 package db;
 import java.sql.*;
 
-import java.sql.*;
+
 public class DBConnection {
-  public static Connection getConn(){ 
+   public static Connection getConn(){
 	//有关数据库的连接Connection
 	Connection conn=null;
 	
@@ -15,7 +15,7 @@ public class DBConnection {
 		//加载驱动
 		Class.forName(DRIVERNAME);
 		//获取连接
-		conn=DriverManager.getConnection(DBURL,"root","root");
+		conn = DriverManager.getConnection(DBURL,"root","root");
 	}catch(Exception e){
 		System.out.println(e.getMessage());
 	}

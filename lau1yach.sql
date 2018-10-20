@@ -28,7 +28,7 @@ CREATE TABLE `contact` (
   `wechatid` varchar(40) DEFAULT NULL,
   `qqid` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`name`,`phone`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8;
 
 -- ----------------------------
 -- Records of contact
@@ -47,7 +47,7 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=UTF8;
 
 -- ----------------------------
 -- Records of user

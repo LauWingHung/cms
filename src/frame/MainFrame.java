@@ -12,7 +12,6 @@ import db.ContactDao;
 
 public class MainFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
-	
 	JMenuBar menubar = new JMenuBar();
 	JMenu m_contactManager = new JMenu("联系人管理");
 	JMenu m_systemManager = new JMenu("系统管理");
@@ -21,16 +20,12 @@ public class MainFrame extends JFrame implements ActionListener {
 	JMenuItem mi_modify = new JMenuItem("修改联系人");
 	JMenuItem mi_delete = new JMenuItem("删除联系人");
 	JMenuItem mi_exit = new JMenuItem("退出系统");
-	
 	JToolBar toolbar = new JToolBar();
 	JButton b_qry = new JButton(new ImageIcon("imgs/search.png"));
 	JButton b_ins = new JButton(new ImageIcon("imgs/input.png"));
 	JButton b_upd = new JButton(new ImageIcon("imgs/update.png"));
 	JButton b_del = new JButton(new ImageIcon("imgs/delete.png"));
 	JButton b_exit = new JButton(new ImageIcon("imgs/exit.png"));
-	//JLabel l_img = new JLabel(new ImageIcon("imgs/img.jpg"));
-	
-	
 	//初始化界面
 	public MainFrame() throws SQLException {
 		Vector a=new Vector();
@@ -42,9 +37,6 @@ public class MainFrame extends JFrame implements ActionListener {
 		a.add("微信号");
 		a.add("QQ号码");
 		Vector b=new Vector();
-		//String[] colNames=new String[]{"姓名","性别","生日","手机号码","邮箱","微信号","QQ号码"};
-		//String[][] datas={{"张三","男","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"李四","男","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"李四","男","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"李四","男","24","1111111","asdasd@qq.com","asdasddfg","55554313"},{"李四","男","24","1111111","asdasd@qq.com","asdasddfg","55554313"}};
-		//super("联系人管理");
 		ResultSet n=ContactDao.getAllContacts();
 		while(n.next()) {
 			Vector k=new Vector();
@@ -59,25 +51,17 @@ public class MainFrame extends JFrame implements ActionListener {
 		}
 		JTable table=new JTable(b,a);
 		JScrollPane sp=new JScrollPane(table);
-		
-		
 		this.add(sp);
-		
 		this.buildMenuBar();
 		this.setJMenuBar(menubar);		
 		this.buildToolBar();		
 		Container c = this.getContentPane();		
 		c.add(toolbar, BorderLayout.NORTH);
-		//c.add(l_img, BorderLayout.CENTER);
 		this.setBounds(200,100,1000, 200);
 		this.setTitle("联系人管理系统");
 		this.setVisible(true);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		
-
 		// 设置菜单项快捷键
 		mi_query.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
 				InputEvent.CTRL_MASK, false));
@@ -89,23 +73,19 @@ public class MainFrame extends JFrame implements ActionListener {
 				InputEvent.CTRL_MASK, false));
 		mi_exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
 				InputEvent.CTRL_MASK, false));
-
 		//注册监听器
 		mi_query.addActionListener(this);
 		mi_insert.addActionListener(this);
 		mi_modify.addActionListener(this);
 		mi_delete.addActionListener(this);
 		mi_exit.addActionListener(this);
-		
 		b_qry.addActionListener(this);
 		b_ins.addActionListener(this);
 		b_upd.addActionListener(this);
 		b_del.addActionListener(this);
 		b_exit.addActionListener(this);
-
-	}
-
-	// 创建菜单
+		}
+		// 创建菜单
 	void buildMenuBar() {
 		menubar.add(m_contactManager);
 		menubar.add(m_systemManager);
@@ -115,7 +95,6 @@ public class MainFrame extends JFrame implements ActionListener {
 		m_contactManager.add(mi_delete);
 		m_systemManager.add(mi_exit);
 	}
-	
 	//创建工具栏
 	void buildToolBar() {
 		toolbar.setFloatable(false);
@@ -132,12 +111,10 @@ public class MainFrame extends JFrame implements ActionListener {
 		b_del.setToolTipText("删除联系人");
 		b_exit.setToolTipText("退出系统");
 	}
-
 	//事件处理
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		
 		//退出
 		if (src == mi_exit  || src==b_exit) {
 			System.exit(0);
